@@ -1,0 +1,15 @@
+{
+  "name": "visionscribe",
+  "description": "VisionScribe, an accessible alt text and image description skill.",
+  "owner": {
+    "name": "Joe Devon",
+    "url": "https://github.com/joedevon"
+  },
+  "plugins": [
+    {
+      "name": "visionscribe",
+      "source": ".",
+      "description": "Accessible alt text and image descriptions that follow WCAG best practices."
+    }
+  ]
+}

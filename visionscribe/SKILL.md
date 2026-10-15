@@ -10,6 +10,7 @@ description: >
   accessibility context. Covers all image types: photos, charts, graphs,
   screenshots, icons, logos, memes, maps, infographics, art, diagrams,
   dashboards, and group photos.
+license: MIT
 ---
 
 # VisionScribe — Accessible Alt Text & Image Description Generator
