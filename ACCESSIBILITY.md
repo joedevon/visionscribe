@@ -14,7 +14,7 @@ VisionScribe drafts alt text. It does not make a page accessible or compliant on
 
 ## Report a problem
 
-[Open an issue](https://github.com/joedevon/visionscribe/issues/new) and describe what went wrong. A maintainer will add the `accessibility` label.
+[Report an accessibility problem](https://github.com/joedevon/visionscribe/issues/new?template=accessibility.yml) using the issue form. The form applies the `accessibility` label, and a maintainer adds the same label to any other issue or pull request that affects accessibility. You can browse [all open accessibility issues](https://github.com/joedevon/visionscribe/issues?q=is%3Aissue%20state%3Aopen%20label%3Aaccessibility).
 
 Two kinds of reports help most:
 

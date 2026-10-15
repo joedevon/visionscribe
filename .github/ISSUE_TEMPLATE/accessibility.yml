@@ -1,0 +1,52 @@
+name: Accessibility problem
+description: Report alt text that is wrong or unhelpful, or a barrier in installing or using VisionScribe.
+labels:
+  - accessibility
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting this. Leave out personal or confidential images.
+
+  - type: dropdown
+    id: problem-type
+    attributes:
+      label: What kind of problem is it?
+      options:
+        - Output problem (the alt text or description is wrong, misleading, too long, or misses something)
+        - Access problem (I could not install the skill or use the documentation with my assistive technology)
+        - Something else
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: For an output problem, paste what VisionScribe produced and say what it should have said.
+    validations:
+      required: true
+
+  - type: textarea
+    id: image
+    attributes:
+      label: The image
+      description: Attach the image, or describe it if you cannot share it. Say where the alt text was going to be used, such as a website, a social post, or a document.
+    validations:
+      required: false
+
+  - type: input
+    id: ai-tool
+    attributes:
+      label: AI tool and model
+      description: For example Claude Code, claude.ai, or Claude Desktop, and the model if you know it.
+    validations:
+      required: false
+
+  - type: input
+    id: assistive-technology
+    attributes:
+      label: Assistive technology
+      description: For example VoiceOver on macOS, NVDA with Firefox, JAWS, or a screen magnifier. Leave blank if none.
+    validations:
+      required: false
