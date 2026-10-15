@@ -1,15 +1,9 @@
 ---
 name: visionscribe
 description: >
-  Generate accessible alt text and image descriptions for uploaded images.
-  Use this skill whenever a user uploads an image and asks for alt text,
-  image descriptions, accessibility text, or any description intended for
-  screen reader users, assistive technology, or WCAG compliance. Also
-  trigger when the user asks to make an image accessible, wants to know
-  what alt text to use, or uploads an image and asks what it shows in an
-  accessibility context. Covers all image types: photos, charts, graphs,
-  screenshots, icons, logos, memes, maps, infographics, art, diagrams,
-  dashboards, and group photos.
+  Write alt text and image descriptions that follow WCAG. Use when someone
+  shares an image and asks for alt text, an image description, or how to
+  make the image accessible to screen reader users.
 license: MIT
 ---
 
