@@ -51,6 +51,10 @@ Upload any image to Claude and say:
 
 VisionScribe is a structured prompt that teaches Claude a systematic approach to writing alt text. It draws on WCAG, the W3C Alt Text Decision Tree, and real-world screen reader behavior to produce descriptions that prioritize meaning and purpose over visual inventory.
 
+## Accessibility
+
+Read [ACCESSIBILITY.md](ACCESSIBILITY.md) for what this project aims for and how to report a problem with VisionScribe's output or documentation.
+
 ## License
 
 MIT
