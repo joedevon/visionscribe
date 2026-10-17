@@ -1,6 +1,6 @@
 # VisionScribe
 
-Accessible alt text and image description generator for Claude.
+Accessible alt text and image description generator for Claude and Codex.
 
 Upload any image and get accurate, context-aware alt text and descriptions, written with the best advice of accessibility experts. Ready to paste into your code, CMS, or documents.
 
@@ -15,6 +15,31 @@ Upload any image and get accurate, context-aware alt text and descriptions, writ
 - **Suggests implementation strategies** like `aria-describedby`, `<figcaption>`, or linked data tables when appropriate
 
 ## Installation
+
+### Codex
+
+From the root of a local copy of this repository, copy the skill into your personal skills directory:
+
+```bash
+mkdir -p ~/.agents/skills
+cp -R visionscribe ~/.agents/skills/
+```
+
+Codex loads skills from `~/.agents/skills`. If VisionScribe does not appear in `/skills`, restart Codex. See the [official Codex skills documentation](https://learn.chatgpt.com/docs/build-skills).
+
+Attach an image and include `$visionscribe` in your prompt. For example, run this from the repository root to try the included test chart:
+
+```bash
+codex --image tests/fixtures/library-visitors-chart.png -- '$visionscribe Write alt text for this image.'
+```
+
+For a non-interactive run:
+
+```bash
+codex exec --sandbox read-only --image tests/fixtures/library-visitors-chart.png -- '$visionscribe Write alt text for this image.'
+```
+
+Use `--` to separate the prompt from the image paths, and single quotes so the shell passes `$visionscribe` to Codex unchanged. Replace the chart path with your own image path for other images.
 
 ### Claude Code
 
@@ -59,7 +84,9 @@ To upload it as a skill instead:
 
 ## Usage
 
-Upload any image to Claude and say:
+In Codex, attach an image and ask `$visionscribe Write alt text for this image.` You can also ask for alt text without naming the skill; Codex selects skills based on their descriptions.
+
+In Claude, upload any image and say:
 
 - `/visionscribe`
 - "Write alt text for this image"
@@ -70,7 +97,7 @@ If another skill also uses the name `visionscribe`, call the plugin by its full 
 
 ## How It Works
 
-VisionScribe is a structured prompt that teaches Claude a systematic approach to writing alt text. It draws on WCAG, the W3C Alt Text Decision Tree, and real-world screen reader behavior to produce descriptions that prioritize meaning and purpose over visual inventory.
+VisionScribe is a structured prompt that teaches an AI assistant a systematic approach to writing alt text. It draws on WCAG, the W3C Alt Text Decision Tree, and real-world screen reader behavior to produce descriptions that prioritize meaning and purpose over visual inventory.
 
 ## Accessibility
 
