@@ -1,7 +1,7 @@
 {
   "name": "visionscribe",
   "version": "1.0.0",
-  "description": "Accessible alt text and image descriptions that follow WCAG best practices.",
+  "description": "Good alt text and image descriptions, written with the best advice of accessibility experts.",
   "author": {
     "name": "Joe Devon",
     "url": "https://github.com/joedevon"

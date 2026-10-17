@@ -1,9 +1,10 @@
 ---
 name: visionscribe
 description: >
-  Write alt text and image descriptions that follow WCAG. Use when someone
-  shares an image and asks for alt text, an image description, or how to
-  make the image accessible to screen reader users.
+  Write good alt text and image descriptions using the best advice of
+  accessibility experts. Use when someone shares an image and asks for alt
+  text, an image description, or how to make the image accessible to screen
+  reader users.
 license: MIT
 ---
 
