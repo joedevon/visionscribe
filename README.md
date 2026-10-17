@@ -9,7 +9,7 @@ Upload any image and get accurate, context-aware alt text and descriptions, writ
 - **Classifies images** as decorative, functional, informative, complex, or composite before writing anything
 - **Produces layered output** for complex images: brief alt text + extended description + alternate approaches
 - **Handles data-dense content** by summarizing patterns instead of transcribing every value
-- **Identifies public figures by name** so screen reader users get the same information sighted users do
+- **Names the people in a photo** from the caption, the surrounding text, or what you tell it, so screen reader users get the same information sighted users do. It flags a missing name instead of dropping it
 - **Adapts to context** depending on platform and purpose
 - **Provides copy-ready output** in fenced code blocks, ready to paste
 - **Suggests implementation strategies** like `aria-describedby`, `<figcaption>`, or linked data tables when appropriate

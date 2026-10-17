@@ -121,13 +121,17 @@ For composite images:
 - Prioritize actions over appearance unless appearance is the point.
 - Mention visible assistive devices or physical characteristics only when
   relevant to context.
-- **Identify recognizable public figures by name.** People who rely on alt
-  text deserve the same information sighted users get instantly. If a news
-  photo shows a senator, the alt text should name the senator. Withholding
-  identifiable information about public figures creates an accessibility
-  gap — sighted readers get it for free; non-visual readers should too.
-  If identification is uncertain, say so (e.g., "a person who appears to
-  be [Name]") rather than omitting the name entirely.
+- **Name the people a sighted reader would recognize.** People who rely on
+  alt text deserve the same information sighted readers get instantly. If
+  a news photo shows a senator, the alt text should name the senator. Many
+  AI models will not identify people from their faces, so find the name
+  another way:
+  - Use a name from the caption, the surrounding text, visible text in the
+    image (a name tag, an on-screen caption, a jersey), or the file name.
+  - If none of those gives a name, ask the user who is pictured. Still
+    provide alt text now, with a `[Name]` placeholder they can fill in.
+  - Never drop a name silently. If you could not name someone a sighted
+    reader would likely recognize, say so outside the code block.
 
 ---
 
@@ -178,7 +182,8 @@ specifies a platform or purpose, adjust emphasis accordingly:
 - **E-commerce:** Highlight product features, colors, materials, scale,
   visible details, and how the product appears in use.
 - **News and journalism:** Objective and factual. Describe what is
-  happening and who is involved. Name identifiable individuals.
+  happening and who is involved. Name the people shown, using the caption
+  or article text.
 - **Museum and gallery:** Describe medium, style, composition. Use rich
   sensory language. Note artist and title if known.
 - **Documentation and technical:** Focus on the state, flow, step,
@@ -321,8 +326,8 @@ Before delivering, verify:
 - [ ] Length fits the complexity.
 - [ ] For data-heavy images, summarizes patterns and outliers rather
       than listing every value.
-- [ ] Avoids unsupported assumptions about identity (but names
-      recognizable public figures).
+- [ ] Avoids unsupported assumptions about identity, but names people
+      when the context gives their names, or flags the missing name.
 - [ ] Ends with a period.
 - [ ] Every copy-ready option is in its own plain fenced code block.
 - [ ] Lines inside code blocks are wrapped to avoid scrolling.
