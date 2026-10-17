@@ -2,7 +2,7 @@
 
 Accessible alt text and image description generator for Claude.
 
-Upload any image and get accurate, context-aware alt text and descriptions that follow WCAG best practices. Ready to paste into your code, CMS, or documents.
+Upload any image and get accurate, context-aware alt text and descriptions, written with the best advice of accessibility experts. Ready to paste into your code, CMS, or documents.
 
 ## What It Does
 
@@ -74,7 +74,7 @@ VisionScribe is a structured prompt that teaches Claude a systematic approach to
 
 ## Accessibility
 
-Read [ACCESSIBILITY.md](ACCESSIBILITY.md) for what this project aims for and how to report a problem with VisionScribe's output or documentation.
+Read [ACCESSIBILITY.md](ACCESSIBILITY.md) for what this project aims for. VisionScribe is provided as is, without support.
 
 ## License
 
