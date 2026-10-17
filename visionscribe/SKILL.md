@@ -1,107 +1,109 @@
 ---
 name: visionscribe
 description: >
-  Write good alt text and image descriptions using the best advice of
-  accessibility experts. Use when someone shares an image and asks for alt
-  text, an image description, or how to make the image accessible to screen
-  reader users.
+  Write alt text and image descriptions for the audience and purpose.
+  Use when someone shares an image and asks for alt text, an image
+  description, or how to make the image accessible to screen reader users.
 license: MIT
 ---
 
-# VisionScribe — Accessible Alt Text & Image Description Generator
+# VisionScribe
 
-Generate alt text and image descriptions that are accurate, context-aware,
-and ready to paste. The goal is to give non-visual readers the information
-they need to understand what an image contributes — nothing more, nothing
-less.
+Write alt text and image descriptions that explain what an image contributes
+in context. Give readers who cannot see the image the information they need.
+Make the text ready to copy.
 
-## Deciding What Kind of Image It Is
+## Classify the image
 
 Before writing anything, classify the image:
 
 ### Decorative
-The image adds visual appeal but no information. Apply the litmus test: if
-the image disappeared, would a reader miss something essential? If not,
-recommend `alt=""`. Present it as a copyable value:
+
+The image adds visual appeal but no information. If it disappeared, would
+a reader miss something essential? If not, recommend `alt=""`:
 
 ```
 alt=""
 ```
 
 ### Functional
+
 The image is a link or button. Describe the function or destination, not
 the appearance. "Search" is correct; "magnifying glass icon" is not.
 
-### Contains Text
+### Contains text
+
 Include visible text verbatim when it carries meaning that isn't already
 conveyed in surrounding content. If the text is fully redundant with a
 caption or adjacent copy, note that and recommend `alt=""`.
 
-When the image contains more text than can reasonably be included in alt
-text — dense data tables, multi-panel dashboards, long paragraphs — do
-not attempt a full transcription. Summarize the key message instead, and
-offer alternate approaches (see below) so the user can choose the
-emphasis that fits their context.
+For dense tables, dashboards, or long paragraphs, summarize the main
+message instead of transcribing everything. Offer alternate approaches
+so the user can choose the emphasis that fits the context.
 
 ### Informative
-Describe the meaning and purpose in context, not a literal inventory of
-visual elements.
+
+Explain what the image communicates and why it is there.
 
 ### Complex
-Charts, graphs, infographics, maps, data visualizations, and diagrams
-need layered treatment:
+
+For charts, graphs, infographics, maps, data visualizations, and diagrams,
+provide:
+
 - Brief alt text with the key takeaway.
 - Extended description with important data, labels, structure, or
   relationships.
 - When relevant, suggest `<figcaption>`, `aria-describedby`, or a linked
-  data table as implementation approaches.
+  data table to accompany the image.
 
 ### Composite
-Dashboards, multi-panel views, and images that embed many charts, tables,
-or data points in a single frame are a special case. Alt text and extended
-descriptions cannot make these fully accessible — a screen reader user
-would have to sit through a long linear reading with no way to scan, skip,
-or interact.
+
+Dashboards and other images with many charts, tables, or panels need more
+than a long description. A screen reader user needs ways to scan, skip,
+and interact with the content. Alt text alone cannot provide those.
 
 For composite images:
-- The brief alt text should name the tool, state the scope, and identify
-  the high-level structure (e.g., "five domain columns").
-- The extended description should tell the story, not transcribe the data.
-  Focus on the 2–4 most important patterns, trends, or outliers — the
-  things a person looking at this image would take away. Resist the urge
-  to list every metric. If specific numbers matter, they belong in a data
-  table, not in prose.
-- Always include alternate approaches (see below), because the right
+
+- The brief alt text should name the tool, state what it covers, and
+  describe its structure, such as "five domain columns".
+- The extended description should explain the two to four most important
+  patterns, trends, or outliers. Put detailed values in a data table
+  rather than listing every metric in prose.
+- Always include alternate approaches, because the right
   emphasis depends heavily on how the image is being used.
 
 ---
 
-## Writing the Alt Text
+## Write the alt text
 
 ### Structure
+
 - Lead with the most important information.
-- Emphasize purpose before detail.
+- Explain the purpose before adding detail.
 - Use spatial order when it helps orientation.
 - End alt text with a period.
 
 ### Length
-- **Simple images:** 1 concise sentence, roughly 15–25 words.
-- **Moderate images:** 1–2 sentences.
-- **Complex images:** brief alt text plus a separate extended description.
-- **Extended descriptions** should stay focused. A few sentences covering
-  structure, key takeaways, and notable outliers — not a data dump. If
-  you find yourself transcribing every value, stop. Summarize the pattern
-  instead, and recommend a data table for the specifics.
+
+- For simple images, write one sentence, roughly 15 to 25 words.
+- For moderately complex images, write one or two sentences.
+- For complex images, write brief alt text and a separate extended
+  description.
+- Keep extended descriptions to a few sentences about the structure,
+  main findings, and notable outliers. Summarize patterns and recommend
+  a data table for detailed values.
 
 ### Include
+
 - Who or what is shown.
 - What is happening.
 - Why it matters in context.
 - Visible text, transcribed exactly when relevant.
-- Colors, materials, layout, labels, trends, or relationships — but only
-  when they carry meaning.
+- Colors, materials, layout, labels, trends, or relationships when they
+  carry meaning.
 
 ### Avoid
+
 - "Image of," "photo of," "picture of," "graphic of."
 - Repeating text already present nearby.
 - SEO keywords.
@@ -114,20 +116,19 @@ For composite images:
 
 ---
 
-## Describing People
+## Describe people
 
 - Use specific age terms when relevant: baby, toddler, child, teen, young
   adult, adult, older adult.
 - Prioritize actions over appearance unless appearance is the point.
 - Mention visible assistive devices or physical characteristics only when
   relevant to context.
-- **Name the people a sighted reader would recognize.** People who rely on
-  alt text deserve the same information sighted readers get instantly. If
-  a news photo shows a senator, the alt text should name the senator. Many
-  AI models will not identify people from their faces, so find the name
-  another way:
+- Name people a sighted reader would recognize. A news photo of a
+  senator should name the senator. Many AI models will not identify
+  people from their faces. Find the name from context:
   - Use a name from the caption, the surrounding text, visible text in the
-    image (a name tag, an on-screen caption, a jersey), or the file name.
+    image, such as a name tag, an on-screen caption, or a jersey, or the
+    file name.
   - If none of those gives a name, ask the user who is pictured. Still
     provide alt text now, with a `[Name]` placeholder they can fill in.
   - Never drop a name silently. If you could not name someone a sighted
@@ -135,7 +136,7 @@ For composite images:
 
 ---
 
-## Image Type Specifics
+## Guidance by image type
 
 **Photographs:** Describe subject, action, setting, and mood when relevant.
 
@@ -149,7 +150,7 @@ interaction.
 
 **Dashboards and multi-panel views:** See the Composite classification
 above. Name the product, describe the organizational structure, and
-summarize the key takeaways narratively. Do not walk through every widget.
+explain the main findings. Do not walk through every widget.
 
 **Art and illustrations:** Describe style only when relevant, then subject,
 composition, and notable visual elements.
@@ -171,10 +172,9 @@ useful, describe the overall purpose, and highlight key subjects.
 
 ---
 
-## Tailoring to Context
+## Adjust for context
 
-The right alt text depends on where the image lives. When the user
-specifies a platform or purpose, adjust emphasis accordingly:
+Adjust the emphasis to the platform and purpose the user gives:
 
 - **Social media:** Concise, focused on the key message.
 - **Educational:** Include labels, relationships, sequence, and
@@ -184,86 +184,83 @@ specifies a platform or purpose, adjust emphasis accordingly:
 - **News and journalism:** Objective and factual. Describe what is
   happening and who is involved. Name the people shown, using the caption
   or article text.
-- **Museum and gallery:** Describe medium, style, composition. Use rich
-  sensory language. Note artist and title if known.
+- **Museum and gallery:** Describe medium, style, and composition. Use
+  sensory detail. Note artist and title if known.
 - **Documentation and technical:** Focus on the state, flow, step,
   architecture, or outcome the reader needs.
 
-When the user does not specify context, default to general-purpose
-informative alt text. If context would materially change the emphasis,
+When the user gives no context, write general-purpose informative alt
+text. If context would change the emphasis,
 provide one recommended version and offer alternate approaches.
 
 ---
 
-## Output Format
+## Format the output
 
-Every copy-ready text option goes in its own fenced code block using
-plain triple backticks with no language tag. This makes alt text easy
-to select and paste.
+Put each text option in its own fenced code block. Use plain triple
+backticks with no language tag so the user can select and paste the text.
 
 - Keep labels and explanations outside the code block.
 - Each code block contains only the final copyable text.
 - Hard-wrap text inside code blocks at natural phrase boundaries,
-  aiming for lines of about 50–72 characters, to prevent horizontal
+  aiming for lines of about 50 to 72 characters, to prevent horizontal
   scrolling.
 - Do not add quotation marks unless they are part of the text to copy.
 
 ### When to provide multiple options
+
 - When one version is clearly best, provide one recommended option.
-- When there are multiple legitimate approaches (e.g., different contexts
-  or levels of detail), provide 2–4 distinct options maximum.
+- When different contexts or levels of detail call for different
+  descriptions, provide two to four distinct options at most.
 - Label each option outside the fence: "Recommended," "More contextual,"
   "More concise," "For social media," "For HTML," etc.
 - Every option must be complete and ready to paste.
 
-### For complex images, provide layered output
+### For complex images
+
 1. Brief alt text in one code block.
 2. Extended description in a second code block.
 3. Short explanation outside the fences when helpful.
 
 ### Implementation formats
-If the user asks for a specific format — HTML, Markdown, JSON, CMS field
-text, or ARIA markup — provide that exact format in a code block.
+
+If the user asks for HTML, Markdown, JSON, CMS field text, or ARIA markup,
+provide that format in a code block.
 
 ---
 
-## Alternate Approaches
+## Offer alternate approaches
 
-For complex, composite, or context-dependent images, the right alt text
-depends on what the user is trying to communicate. After providing a
-recommended alt text, offer 2–3 numbered alternate approaches. Each
-approach is a different strategy for describing the same image, with a
-different emphasis.
+For complex or composite images, or when context changes what matters,
+give recommended alt text followed by two or three numbered alternatives.
+Each alternative should emphasize something different about the image.
 
 Each alternate approach should include:
+
 - A short label explaining what this version prioritizes.
 - A complete, copy-ready alt text in its own code block.
 
-The approaches should be meaningfully distinct — not just shorter or
-longer versions of the same text, but different angles on what matters.
-Think about what different audiences or contexts would need to take away
-from the image, and write an alt text optimized for each.
+Choose alternatives based on what different audiences need to know.
+Changing only the length does not make an alternative useful.
 
-**Example of how to structure this section in a response:**
+Example structure:
 
 > **Alternate approaches:**
 >
-> **1. Focus on the narrative** — what a viewer would
-> take away at a glance:
+> **1. Main finding**
 >
 > (code block with copy-ready alt text)
 >
-> **2. Focus on the structure** — how the content is
-> organized:
+> **2. Organization of the content**
 >
 > (code block with copy-ready alt text)
 >
-> **3. Focus on the product** — what the tool does,
-> not what the data says:
+> **3. Purpose of the tool**
 >
 > (code block with copy-ready alt text)
 
 Include alternate approaches when:
+
 - The image is complex or composite.
 - Context would materially change the emphasis.
 - There are multiple reasonable ways to describe the image and no
@@ -273,37 +270,35 @@ Skip this section for simple images where one alt text clearly serves.
 
 ---
 
-## Implementation Notes
+## Add implementation notes
 
-When the image represents content that could be delivered more accessibly
-than as a flat image, add a brief note after the alt text and alternate
-approaches. Keep this to 1–2 sentences. Common observations:
+If readers would benefit from another way to access the content, add one
+or two sentences after the descriptions. For example:
 
 - The content is a screenshot of an interactive tool that could be
   linked to directly.
 - The data would be better served by an accessible HTML table or CSV
   alongside the image.
-- The content could be built with native HTML (headings, tables, ARIA
-  live regions) instead of flattened into an image.
+- The content could use HTML headings, tables, or ARIA live regions
+  instead of an image.
 
-This is advisory, not a required section. Use it when the observation
-is genuinely useful and non-obvious.
+Include this note only when it gives the user a useful next step.
 
 ---
 
-## Interaction Flow
+## Respond to the user
 
 1. When the user uploads an image with no additional context, provide
    concise, general-purpose alt text.
 2. When the user specifies platform, audience, or purpose, tailor output
    to match.
-3. When the image is ambiguous and context would materially change the
+3. When the image is ambiguous and context would change the
    emphasis, provide a recommended version and offer alternate
    approaches. Do not block on a question when a useful default is
    possible.
 4. After providing alt text:
    - Offer a brief explanation only when the image is complex or the
-     reasoning is non-obvious.
+     reasoning needs explanation.
    - For complex, composite, or data-dense images, include alternate
      approaches with copy-ready options.
    - For charts, infographics, maps, diagrams, and detailed scenes,
@@ -315,7 +310,7 @@ is genuinely useful and non-obvious.
 
 ---
 
-## Quality Checklist
+## Check the result
 
 Before delivering, verify:
 
@@ -336,9 +331,9 @@ Before delivering, verify:
 
 ---
 
-## Response Style
+## Writing style
 
-Be clear, direct, and practical. Optimize for accessibility, copyability,
-and real-world usefulness. Use the smallest amount of description that
-still preserves meaning. Do not pad responses with unnecessary preamble
-or follow-up questions when the output speaks for itself.
+Use plain language and keep descriptions as short as the meaning allows.
+Use straight quotes and periods or commas instead of em or en dashes.
+Start with the description. Add explanations or follow-up questions only
+when they help the user.

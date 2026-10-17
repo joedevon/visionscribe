@@ -1,6 +1,6 @@
 {
   "name": "visionscribe",
-  "description": "VisionScribe, an accessible alt text and image description skill.",
+  "description": "Alt text and image descriptions for Claude Code.",
   "owner": {
     "name": "Joe Devon",
     "url": "https://github.com/joedevon"
@@ -9,7 +9,7 @@
     {
       "name": "visionscribe",
       "source": ".",
-      "description": "Good alt text and image descriptions, written with the best advice of accessibility experts."
+      "description": "Write alt text and image descriptions for the audience and purpose."
     }
   ]
 }

@@ -1,24 +1,24 @@
 # VisionScribe
 
-Accessible alt text and image description generator for Claude and Codex.
+Write alt text and image descriptions with Claude or Codex.
 
-Upload any image and get accurate, context-aware alt text and descriptions, written with the best advice of accessibility experts. Ready to paste into your code, CMS, or documents.
+Attach an image and tell VisionScribe where you plan to use it. It drafts alt text you can paste into your code, CMS, or documents. For charts and other complex images, it also writes an extended description.
 
-## What It Does
+## What it does
 
-- **Classifies images** as decorative, functional, informative, complex, or composite before writing anything
-- **Produces layered output** for complex images: brief alt text + extended description + alternate approaches
-- **Handles data-dense content** by summarizing patterns instead of transcribing every value
-- **Names the people in a photo** from the caption, the surrounding text, or what you tell it, so screen reader users get the same information sighted users do. It flags a missing name instead of dropping it
-- **Adapts to context** depending on platform and purpose
-- **Provides copy-ready output** in fenced code blocks, ready to paste
-- **Suggests implementation strategies** like `aria-describedby`, `<figcaption>`, or linked data tables when appropriate
+- Classifies the image before writing. Decorative images may need empty alt text; buttons and links need text that explains their function.
+- Gives complex images brief alt text, an extended description, and alternatives for different uses.
+- Summarizes patterns in charts and dashboards instead of listing every value.
+- Names people using captions, surrounding text, visible text, file names, or information you provide. It flags missing names and asks you to fill them in.
+- Adjusts descriptions for the audience and purpose.
+- Puts each text option in a separate code block for copying.
+- Suggests captions, linked data tables, or `aria-describedby` when they would help.
 
 ## Installation
 
 ### Codex
 
-From the root of a local copy of this repository, copy the skill into your personal skills directory:
+From the repository root, copy the skill into your personal skills directory:
 
 ```bash
 mkdir -p ~/.agents/skills
@@ -27,7 +27,7 @@ cp -R visionscribe ~/.agents/skills/
 
 Codex loads skills from `~/.agents/skills`. If VisionScribe does not appear in `/skills`, restart Codex. See the [official Codex skills documentation](https://learn.chatgpt.com/docs/build-skills).
 
-Attach an image and include `$visionscribe` in your prompt. For example, run this from the repository root to try the included test chart:
+Attach an image and include `$visionscribe` in your prompt. To try the included chart, run this from the repository root:
 
 ```bash
 codex --image tests/fixtures/library-visitors-chart.png -- '$visionscribe Write alt text for this image.'
@@ -49,16 +49,16 @@ Install VisionScribe as a plugin. In a Claude Code session, run:
 /plugin install visionscribe --marketplace joedevon/visionscribe
 ```
 
-That one-step form needs Claude Code 2.1.275 or later. On an older version, add the marketplace first:
+This command needs Claude Code 2.1.275 or later. On an older version, add the marketplace first:
 
 ```
 /plugin marketplace add joedevon/visionscribe
 /plugin install visionscribe@visionscribe
 ```
 
-To get a newer version later, run `/plugin marketplace update visionscribe`.
+To update the plugin later, run `/plugin marketplace update visionscribe`.
 
-You can also copy the skill folder into your personal skills directory instead:
+You can also install the skill by copying its folder into your personal skills directory:
 
 ```bash
 cp -r visionscribe/ ~/.claude/skills/visionscribe/
@@ -78,7 +78,7 @@ To install it as a plugin, go to **Customize > Plugins**, choose **Add**, then *
 
 To upload it as a skill instead:
 
-1. Click the green **Code** button on this repo and choose **Download ZIP**
+1. Click the green **Code** button on this repository and choose **Download ZIP**
 2. On [claude.ai](https://claude.ai), go to **Customize > Skills**
 3. Click **+** and upload the ZIP
 
@@ -95,13 +95,15 @@ In Claude, upload any image and say:
 
 If another skill also uses the name `visionscribe`, call the plugin by its full name, `/visionscribe:visionscribe`.
 
-## How It Works
+## How it works
 
-VisionScribe is a structured prompt that teaches an AI assistant a systematic approach to writing alt text. It draws on WCAG, the W3C Alt Text Decision Tree, and real-world screen reader behavior to produce descriptions that prioritize meaning and purpose over visual inventory.
+VisionScribe is a set of instructions in [SKILL.md](visionscribe/SKILL.md). It tells the assistant to consider an image's purpose, choose what a reader needs to know, and write a description that fits the context.
+
+The guidance draws on WCAG, the W3C Alt Text Decision Tree, and how people use screen readers. It currently has no bibliography or citations for individual rules.
 
 ## Accessibility
 
-Read [ACCESSIBILITY.md](ACCESSIBILITY.md) for what this project aims for. VisionScribe is provided as is, without support.
+Read [ACCESSIBILITY.md](ACCESSIBILITY.md) for the project's accessibility goals and limits. VisionScribe is provided as is, without support.
 
 ## License
 
@@ -109,4 +111,4 @@ Read [ACCESSIBILITY.md](ACCESSIBILITY.md) for what this project aims for. Vision
 
 ## Author
 
-[Joe Devon](https://www.linkedin.com/in/joedevon/) - Co-founder of [Global Accessibility Awareness Day (GAAD)](https://accessibility.day) and Chair of the [GAAD Foundation](https://gaad.foundation).
+[Joe Devon](https://www.linkedin.com/in/joedevon/) co-founded [Global Accessibility Awareness Day](https://accessibility.day) and chairs the [GAAD Foundation](https://gaad.foundation).
