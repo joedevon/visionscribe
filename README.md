@@ -1,6 +1,6 @@
 # VisionScribe
 
-Write alt text and image descriptions with Claude or Codex.
+Write alt text and image descriptions with Claude, Codex, Pi or GitHub Copilot.
 
 Attach an image and tell VisionScribe where you plan to use it. It drafts alt text you can paste into your code, CMS, or documents. For charts and other complex images, it also writes an extended description.
 
@@ -58,6 +58,25 @@ pi --print @tests/fixtures/library-visitors-chart.png 'Write alt text for this i
 
 To force the skill, prefix the prompt with `/skill:visionscribe`. In the interactive terminal, attach an image by typing `@path`, pasting, or dragging it in. VisionScribe needs a model that accepts images, so check the `images` column in `pi --list-models` and choose a model marked `yes`.
 
+### GitHub Copilot
+
+Copilot reads personal skills from `~/.agents/skills/`, the same directory Codex and Pi use. From the repository root:
+
+```bash
+mkdir -p ~/.agents/skills
+cp -R visionscribe ~/.agents/skills/
+```
+
+Run `copilot skill list` to confirm VisionScribe appears. To try the included chart from the repository root:
+
+```bash
+copilot -p '/visionscribe Write alt text for this image.' --attachment tests/fixtures/library-visitors-chart.png --allow-tool=read
+```
+
+`--allow-tool=read` lets Copilot read the skill file. Without it, a `-p` run answers without VisionScribe's instructions.
+
+In an interactive session, attach an image and ask Copilot to use `/visionscribe`.
+
 ### Claude Code
 
 Install VisionScribe as a plugin. In a Claude Code session, run:
@@ -112,13 +131,15 @@ In Claude, upload any image and say:
 
 In Pi, attach an image with `@path`, paste, or drag it in, and ask for alt text. Pi loads VisionScribe when the request matches; force it with `/skill:visionscribe`.
 
+In GitHub Copilot, attach an image and ask it to use `/visionscribe`.
+
 If another skill also uses the name `visionscribe`, call the plugin by its full name, `/visionscribe:visionscribe`.
 
 ## How it works
 
-VisionScribe is a set of instructions in [SKILL.md](visionscribe/SKILL.md). It tells the assistant to consider an image's purpose, choose what a reader needs to know, and write a description that fits the context.
+VisionScribe's instructions are in [SKILL.md](visionscribe/SKILL.md). The instructions tell the assistant to consider an image's purpose, choose what a reader needs to know, and write a description that fits the context.
 
-The guidance draws on WCAG, the W3C Alt Text Decision Tree, and how people use screen readers. It currently has no bibliography or citations for individual rules.
+The guidance draws on WCAG, the W3C Alt Text Decision Tree, and how people use screen readers.
 
 ## Accessibility
 

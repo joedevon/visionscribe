@@ -335,6 +335,5 @@ Before delivering, verify:
 ## Writing style
 
 Use plain language and keep descriptions as short as the meaning allows.
-Use straight quotes and periods or commas instead of em or en dashes.
 Start with the description. Add explanations or follow-up questions only
 when they help the user.
