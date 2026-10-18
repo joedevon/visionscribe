@@ -41,6 +41,23 @@ codex exec --sandbox read-only --image tests/fixtures/library-visitors-chart.png
 
 Use `--` to separate the prompt from the image paths, and single quotes so the shell passes `$visionscribe` to Codex unchanged. Replace the chart path with your own image path for other images.
 
+### Pi
+
+Pi discovers skills in `~/.agents/skills/`, the same directory Codex uses. From the repository root:
+
+```bash
+mkdir -p ~/.agents/skills
+cp -R visionscribe ~/.agents/skills/
+```
+
+Attach an image with `@path` and ask for alt text; Pi loads VisionScribe when the request matches. To try the included chart from the repository root:
+
+```bash
+pi --print @tests/fixtures/library-visitors-chart.png 'Write alt text for this image.'
+```
+
+To force the skill, prefix the prompt with `/skill:visionscribe`. In the interactive terminal, attach an image by typing `@path`, pasting, or dragging it in. VisionScribe needs a model that accepts images, so check the `images` column in `pi --list-models` and choose a model marked `yes`.
+
 ### Claude Code
 
 Install VisionScribe as a plugin. In a Claude Code session, run:
@@ -92,6 +109,8 @@ In Claude, upload any image and say:
 - "Write alt text for this image"
 - "Describe this image for accessibility"
 - "What alt text should I use?"
+
+In Pi, attach an image with `@path`, paste, or drag it in, and ask for alt text. Pi loads VisionScribe when the request matches; force it with `/skill:visionscribe`.
 
 If another skill also uses the name `visionscribe`, call the plugin by its full name, `/visionscribe:visionscribe`.
 
